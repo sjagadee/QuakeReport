@@ -22,4 +22,40 @@
 
     <!-- Accent color of the app -->
     <color name="colorAccent">#10CAC9</color>
+
+    <!-- Color magnitude for 0-2 mg in the app -->
+    <color name="mag1">#4A7BA7</color>
+
+    <!-- Color magnitude for 2-3 mg in the app -->
+    <color name="mag2">#04B4B3</color>
+
+    <!-- Color magnitude for 3-4 mg in the app -->
+    <color name="mag3">#10CAC9</color>
+
+    <!-- Color magnitude for 4-5 mg in the app -->
+    <color name="mag4">#F5A623</color>
+
+    <!-- Color magnitude for 5-6 mg in the app -->
+    <color name="mag5">#FF7D50</color>
+
+    <!-- Color magnitude for 6-7 mg in the app -->
+    <color name="mag6">#FC6644</color>
+
+    <!-- Color magnitude for 7-8 mg in the app -->
+    <color name="mag7">#E75F40</color>
+
+    <!-- Color magnitude for 8-9 mg in the app -->
+    <color name="mag8">#E13A20</color>
+
+    <!-- Color magnitude for 9-10 mg in the app -->
+    <color name="mag9">#D93218</color>
+
+    <!-- Color magnitude for 10+ mg in the app -->
+    <color name="mag10plus">#C03823</color>
+
+    <!-- Text color for the details of the earthquake in the list item -->
+    <color name="textColorEarthquakeDetails">#B4BAC0</color>
+
+    <!-- Text color for the primary location of the earthquake in the list item -->
+    <color name="textColorEarthquakeLocation">#2B3D4D</color>
 </resources>
