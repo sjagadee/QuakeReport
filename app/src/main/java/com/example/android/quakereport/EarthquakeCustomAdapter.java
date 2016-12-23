@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,6 +39,7 @@ public class EarthquakeCustomAdapter extends ArrayAdapter<EarthQuake>{
         TextView tvDate = (TextView) listItemView.findViewById(R.id.tvDate);
         TextView tvTime = (TextView) listItemView.findViewById(R.id.tvTime);
 
+        // Setting city and the distance from the city where the earthquake occurred
         String name = curEarthQuake.getCityName();
         if(name.matches("(?i).*of.*")) {
             String[] parts = name.split("(?<=of)");
@@ -48,27 +50,38 @@ public class EarthquakeCustomAdapter extends ArrayAdapter<EarthQuake>{
             tvCityName.setText(name);
         }
 
-        tvMagnitude.setText(String.valueOf(curEarthQuake.getMagnitude()));
+        // Setting text for magnitude
+        tvMagnitude.setText(formatMagnitude(curEarthQuake.getMagnitude()));
 
         String data = curEarthQuake.getDate();
         long inMilliSecondDate = Long.valueOf(data);
 
         Date dateObj = new Date(inMilliSecondDate);
 
-        tvDate.setText(formattedDate(dateObj));
-        tvTime.setText(formattedTime(dateObj));
+        // Setting time for Date and time
+        tvDate.setText(formatDate(dateObj));
+        tvTime.setText(formatTime(dateObj));
 
         return listItemView;
     }
 
-    private String formattedDate(Date dateObj) {
+    /*
+        Double magnitude = 8.5643;
+        if we pass magnitude then the out put would be 8.5 in String format
+     */
+    private String formatMagnitude(Double magnitude) {
+        DecimalFormat decimalFormat = new DecimalFormat("0.0");
+        return decimalFormat.format(magnitude);
+    }
+
+    private String formatDate(Date dateObj) {
 
         SimpleDateFormat simpleDate = new SimpleDateFormat("LLL dd, yyyy");
         return simpleDate.format(dateObj);
 
     }
 
-    private String formattedTime(Date dateObj) {
+    private String formatTime(Date dateObj) {
 
         SimpleDateFormat simpleDate = new SimpleDateFormat("h:mm a");
         return simpleDate.format(dateObj);

@@ -48,10 +48,10 @@ public class QueryUtils {
                 JSONObject propertyObj = featureObj.optJSONObject("properties");
 
                 String cityName = propertyObj.optString("place");
-                double magnitude = propertyObj.optDouble("mag");
+                Double magnitude = propertyObj.optDouble("mag");
                 String time = propertyObj.optString("time");
 
-                earthQuakes.add(new EarthQuake(cityName, (float) magnitude, time));
+                earthQuakes.add(new EarthQuake(cityName, magnitude, time));
 
             }
 

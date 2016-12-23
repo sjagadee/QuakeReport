@@ -8,13 +8,13 @@ package com.example.android.quakereport;
 public class EarthQuake {
 
     private String cityName;
-    private float magnitude;
+    private Double magnitude;
     private String date;
 
     public EarthQuake() {
     }
 
-    public EarthQuake(String cityName, float magnitude, String date) {
+    public EarthQuake(String cityName, Double magnitude, String date) {
         this.cityName = cityName;
         this.magnitude = magnitude;
         this.date = date;
@@ -28,11 +28,11 @@ public class EarthQuake {
         this.cityName = cityName;
     }
 
-    public float getMagnitude() {
+    public Double getMagnitude() {
         return magnitude;
     }
 
-    public void setMagnitude(float magnitude) {
+    public void setMagnitude(Double magnitude) {
         this.magnitude = magnitude;
     }
 
