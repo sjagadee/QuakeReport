@@ -32,14 +32,23 @@ public class EarthquakeCustomAdapter extends ArrayAdapter<EarthQuake>{
         }
 
         EarthQuake curEarthQuake = getItem(position);
-
         TextView tvMagnitude = (TextView) listItemView.findViewById(R.id.tvMagnitude);
+        TextView tvDistanceFromTheCity = (TextView) listItemView.findViewById(R.id.tvDistanceFromCity);
         TextView tvCityName = (TextView) listItemView.findViewById(R.id.tvNameofCity);
         TextView tvDate = (TextView) listItemView.findViewById(R.id.tvDate);
         TextView tvTime = (TextView) listItemView.findViewById(R.id.tvTime);
 
+        String name = curEarthQuake.getCityName();
+        if(name.matches("(?i).*of.*")) {
+            String[] parts = name.split("(?<=of)");
+            tvDistanceFromTheCity.setText(parts[0]);
+            tvCityName.setText(parts[1]);
+        } else {
+            tvDistanceFromTheCity.setText("Near the");
+            tvCityName.setText(name);
+        }
+
         tvMagnitude.setText(String.valueOf(curEarthQuake.getMagnitude()));
-        tvCityName.setText(curEarthQuake.getCityName());
 
         String data = curEarthQuake.getDate();
         long inMilliSecondDate = Long.valueOf(data);
